@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>job4j_accidents</artifactId>
+    <artifactId>ru.job4j.accidents</artifactId>
     <version>1.0.0</version>
     <name>job4j_accidents</name>
     <description>job4j_accidents</description>
