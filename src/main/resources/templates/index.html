@@ -15,11 +15,30 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
                 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-        <title>Job4J Accidents. Index Page</title>
+        <title>Сервис фиксации нарушений ПДД</title>
     </head>
     <body>
         <div class="container">
-            <h1>Сервис фиксации нарушений ПДД</h1>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Автонарушители</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu2</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text" th:text="${user}"></span>
+                </div>
+            </nav>
         </div>
     </body>
 </html>
