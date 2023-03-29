@@ -39,6 +39,27 @@
                     <span class="navbar-text" th:text="${user}"></span>
                 </div>
             </nav>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Нарушитель</th>
+                        <th>Адрес</th>
+                        <th>Описание нарушения</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr scope="row" th:each="accident : ${accidents}">
+                        <!--/*@thymesVar id="accident" type="ru.job4j.accidents.model.Accident"*/-->
+                        <td th:text="${accident.id}"></td>
+                        <td th:text="${accident.name}"></td>
+                        <td th:text="${accident.address}"></td>
+                        <td th:text="${accident.text}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
