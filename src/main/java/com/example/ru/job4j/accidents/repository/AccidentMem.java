@@ -3,6 +3,8 @@ package com.example.ru.job4j.accidents.repository;
 import com.example.ru.job4j.accidents.model.Accident;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -23,11 +25,11 @@ public class AccidentMem {
     public Accident add(Accident accident) {
         accident.setId(currentId.incrementAndGet());
         store.put(accident.getId(), accident);
-        return store.get(accident.getId());
+        return accident;
     }
 
-    public Map<Integer, Accident> findAll() {
-        return store;
+    public List<Accident> findAll() {
+        return new ArrayList<>(store.values());
     }
 
 }
