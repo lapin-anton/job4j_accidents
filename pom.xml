@@ -8,8 +8,8 @@
         <version>2.5.7</version>
         <relativePath/>
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>ru.job4j.accidents</artifactId>
+    <groupId>ru.job4j.accidents</groupId>
+    <artifactId>job4j_accidents</artifactId>
     <version>1.0.0</version>
     <name>job4j_accidents</name>
     <description>job4j_accidents</description>

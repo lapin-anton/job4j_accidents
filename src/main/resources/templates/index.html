@@ -27,13 +27,13 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link active" th:href="@{/}">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu1</a>
+                            <a class="nav-item nav-link" href="#">Инциденты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Menu2</a>
+                            <a class="nav-item nav-link" th:href="@{/addAccident}">Добавить Инцидент</a>
                         </li>
                     </ul>
                     <span class="navbar-text" th:text="${user}"></span>
@@ -47,6 +47,7 @@
                         <th>Нарушитель</th>
                         <th>Адрес</th>
                         <th>Описание нарушения</th>
+                        <th>Изменить данные</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,7 @@
                         <td th:text="${accident.name}"></td>
                         <td th:text="${accident.address}"></td>
                         <td th:text="${accident.text}"></td>
+                        <td><a class="btn btn-primary" th:href="@{/editAccident/{id}(id=${accident.id})}" role="button">Изменить</a></td>
                     </tr>
                     </tbody>
                 </table>

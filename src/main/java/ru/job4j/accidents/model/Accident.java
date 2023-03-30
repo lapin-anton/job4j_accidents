@@ -1,4 +1,4 @@
-package com.example.ru.job4j.accidents.model;
+package ru.job4j.accidents.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

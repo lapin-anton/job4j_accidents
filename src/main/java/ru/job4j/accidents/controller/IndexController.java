@@ -1,7 +1,7 @@
-package com.example.ru.job4j.accidents.controller;
+package ru.job4j.accidents.controller;
 
-import com.example.ru.job4j.accidents.controller.service.AccidentService;
-import com.example.ru.job4j.accidents.model.Accident;
+import ru.job4j.accidents.service.AccidentService;
+import ru.job4j.accidents.model.Accident;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
