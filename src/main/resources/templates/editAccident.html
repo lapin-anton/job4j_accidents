@@ -26,7 +26,7 @@
                     <a class="nav-item nav-link" th:href="@{/}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link" th:href="#">Инциденты</a>
+                    <a class="nav-item nav-link" href="#">Инциденты</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-item nav-link" th:href="@{/addAccident}">Добавить Инцидент</a>
@@ -41,7 +41,7 @@
                 Редактировать инцидент
             </div>
             <div class="card-body">
-                <form th:action="@{/saveAccident}" method="POST" enctype="multipart/form-data">
+                <form th:action="@{/updateAccident}" method="POST" enctype="multipart/form-data">
                     <!--/*@thymesVar id="accident" type="ru.job4j.accidents.model.Accident"*/-->
                     <input type="hidden" name="id" th:value="${accident.id}"/>
                     <div class="form-group">

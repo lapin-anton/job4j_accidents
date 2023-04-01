@@ -18,7 +18,11 @@ public class AccidentService {
     }
 
     public void create(Accident accident) {
-        accidentMem.save(accident);
+        accidentMem.add(accident);
+    }
+
+    public void update(Accident accident) {
+        accidentMem.update(accident);
     }
 
     public Accident findById(Integer id) {

@@ -16,16 +16,19 @@ public class AccidentMem {
     private Map<Integer, Accident> store = new ConcurrentHashMap<>();
 
     public AccidentMem() {
-        save(new Accident(0, "Иван Иванов", "Москва, Варшавское ш., 10", "Неправильная парковка"));
-        save(new Accident(0, "Петр Петров", "С-Петербург, Невский пр-т, 143", "ДТП"));
-        save(new Accident(0, "Сергей Сергеев", "Краснодар, ул. Калинина, 55",
+        add(new Accident(0, "Иван Иванов", "Москва, Варшавское ш., 10", "Неправильная парковка"));
+        add(new Accident(0, "Петр Петров", "С-Петербург, Невский пр-т, 143", "ДТП"));
+        add(new Accident(0, "Сергей Сергеев", "Краснодар, ул. Калинина, 55",
                 "Проезд на красный сигнал светофора"));
     }
 
-    public Accident save(Accident accident) {
-        if (!store.containsValue(accident)) {
-            accident.setId(currentId.incrementAndGet());
-        }
+    public Accident add(Accident accident) {
+        accident.setId(currentId.incrementAndGet());
+        store.put(accident.getId(), accident);
+        return accident;
+    }
+
+    public Accident update(Accident accident) {
         store.put(accident.getId(), accident);
         return accident;
     }
