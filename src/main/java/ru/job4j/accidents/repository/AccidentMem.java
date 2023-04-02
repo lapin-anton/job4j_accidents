@@ -29,7 +29,7 @@ public class AccidentMem {
     }
 
     public Accident update(Accident accident) {
-        store.put(accident.getId(), accident);
+        store.replace(accident.getId(), accident);
         return accident;
     }
 
