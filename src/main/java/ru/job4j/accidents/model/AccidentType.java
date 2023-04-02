@@ -9,12 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Accident {
-
+public class AccidentType {
     @EqualsAndHashCode.Include
     private int id;
+
     private String name;
-    private AccidentType type;
-    private String address;
-    private String text;
 }
