@@ -5,6 +5,7 @@ import ru.job4j.accidents.model.Accident;
 import ru.job4j.accidents.model.AccidentType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -15,15 +16,15 @@ public class AccidentMem {
 
     private AtomicInteger currentId = new AtomicInteger(0);
     private Map<Integer, Accident> store = new ConcurrentHashMap<>();
-    private List<AccidentType> types = new ArrayList<>();
+    private Map<Integer, AccidentType> types = new HashMap<>();
 
     public AccidentMem() {
-        types.add(new AccidentType(1, "Две машины"));
-        types.add(new AccidentType(2, "Машина и человек"));
-        types.add(new AccidentType(3, "Машина и велосипед"));
-        add(new Accident(0, "Иван Иванов", types.get(0), "Москва, Варшавское ш., 10", "Неправильная парковка"));
-        add(new Accident(0, "Петр Петров", types.get(1), "С-Петербург, Невский пр-т, 143", "ДТП"));
-        add(new Accident(0, "Сергей Сергеев", types.get(2), "Краснодар, ул. Калинина, 55",
+        types.put(1, new AccidentType(1, "Две машины"));
+        types.put(2, new AccidentType(2, "Машина и человек"));
+        types.put(3, new AccidentType(3, "Машина и велосипед"));
+        add(new Accident(0, "Иван Иванов", types.get(1), "Москва, Варшавское ш., 10", "Неправильная парковка"));
+        add(new Accident(0, "Петр Петров", types.get(2), "С-Петербург, Невский пр-т, 143", "ДТП"));
+        add(new Accident(0, "Сергей Сергеев", types.get(3), "Краснодар, ул. Калинина, 55",
                 "Проезд на красный сигнал светофора"));
     }
 
@@ -49,12 +50,10 @@ public class AccidentMem {
     }
 
     public List<AccidentType> findAllTypes() {
-        return types;
+        return new ArrayList<>(types.values());
     }
 
     private AccidentType getTypeById(int id) {
-        return types.stream()
-                .filter(e -> e.getId() == id).findFirst()
-                .orElse(null);
+        return types.get(id);
     }
 }
