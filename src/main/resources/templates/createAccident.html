@@ -63,6 +63,15 @@
                         <label for="name">Описание нарушения</label>
                         <input type="text" class="form-control" name="text" id="text">
                     </div>
+                    <div class="form-group">
+                        <label for="type.id" name="rIds">Статья</label>
+                        <select class="form-control" id="rIds" name="rIds" multiple>
+                            <!--/*@thymesVar id="rules" type="ru.job4j.accidents.model.Rule"*/-->
+                            <option th:each="rule: ${rules}"
+                                    th:text="${rule.name}"
+                                    th:value="${rule.id}"></option>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
                 </form>
             </div>

@@ -49,6 +49,7 @@
                         <th>Тип нарушения</th>
                         <th>Адрес</th>
                         <th>Описание нарушения</th>
+                        <th>Статьи</th>
                         <th>Действия</th>
                     </tr>
                     </thead>
@@ -60,6 +61,11 @@
                         <td th:text="${accident.type.name}"></td>
                         <td th:text="${accident.address}"></td>
                         <td th:text="${accident.text}"></td>
+                        <td>
+                           <div th:each="rule : ${accident.rules}"
+                           th:text="${rule.name}">
+                           </div>
+                        </td>
                         <td>
                             <a th:title="Редактировать" th:href="@{|/formEditAccident?id=${accident.id}|}">
                             <i class="fa fa-edit"></i></a>
