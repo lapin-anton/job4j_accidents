@@ -14,8 +14,8 @@ public class AccidentMem {
 
     private AtomicInteger currentId = new AtomicInteger(0);
     private Map<Integer, Accident> store = new ConcurrentHashMap<>();
-    private Map<Integer, AccidentType> types = new HashMap<>();
-    private Map<Integer, Rule> rules = new HashMap<>();
+    private Map<Integer, AccidentType> types = new ConcurrentHashMap<>();
+    private Map<Integer, Rule> rules = new ConcurrentHashMap<>();
 
     public AccidentMem() {
         types.put(1, new AccidentType(1, "Две машины"));
