@@ -1,13 +1,12 @@
 package ru.job4j.accidents.service;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import ru.job4j.accidents.model.Accident;
 import ru.job4j.accidents.model.AccidentType;
 import ru.job4j.accidents.model.Rule;
 import ru.job4j.accidents.repository.AccidentMem;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 
@@ -21,13 +20,13 @@ public class AccidentService {
         return accidentMem.findAll();
     }
 
-    public void create(Accident accident, HttpServletRequest req) {
-        setRules(accident, req);
+    public void create(Accident accident, String[] rulesIds) {
+        setRules(accident, rulesIds);
         accidentMem.add(accident);
     }
 
-    public void update(Accident accident, HttpServletRequest req) {
-        setRules(accident, req);
+    public void update(Accident accident, String[] rulesIds) {
+        setRules(accident, rulesIds);
         accidentMem.update(accident);
     }
 
@@ -47,9 +46,8 @@ public class AccidentService {
         return accidentMem.findAllByStrArray(ids);
     }
 
-    private void setRules(Accident accident, HttpServletRequest req) {
-        String[] ids = req.getParameterValues("rIds");
-        Set<Rule> rules = findAllByStrArray(ids);
+    private void setRules(Accident accident, String[] rulesIds) {
+        Set<Rule> rules = findAllByStrArray(rulesIds);
         accident.setRules(rules);
     }
 
